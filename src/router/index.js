@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/all_pwd',
     name: 'Passwords',
-    component: () => import('../views/Passwords.vue')
+    component: () => import('../views/AllPasswords.vue')
   },
   {
     path: '/new_pwd',

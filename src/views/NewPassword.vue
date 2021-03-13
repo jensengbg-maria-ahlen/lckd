@@ -8,7 +8,7 @@
       NEW SECURE <br />
       CREDENTIALS
     </h2>
-    <button @click="goTo('/all_pwd')">NEW LCKD</button>
+    <button class="buttons" @click="goTo('/all_pwd')">NEW LCKD</button>
   </section>
 </template>
 
