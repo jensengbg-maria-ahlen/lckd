@@ -1,9 +1,9 @@
 <template>
   <section id="loginSection">
     <div id="logoDiv">
-      <img src="@/assets/logo.png" alt="" />
-      <h1>LCKD</h1>
-      <h3>
+      <img src="@/assets/logo.png" alt="logo" class="bigLogo" />
+      <h1 class="headerText">LCKD</h1>
+      <h3 class="headerText2">
         KEEPING YOUR <br />
         PASSWORDS SAFE
       </h3>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LoginComponent from "./../components/Login";
+import LoginComponent from "./../components/LoginComponent";
 export default {
   name: "Login",
   components: {
@@ -40,12 +40,12 @@ export default {
   align-items: center;
 }
 
-img {
+.bigLogo {
   width: 76px;
   height: 76px;
 }
 
-h1 {
+.headerText {
   margin: 0.3em;
   font-style: normal;
   font-weight: bold;
@@ -55,7 +55,7 @@ h1 {
   text-align: center;
 }
 
-h3 {
+.headerText2 {
   margin: 0;
   font-style: normal;
   font-weight: bold;
