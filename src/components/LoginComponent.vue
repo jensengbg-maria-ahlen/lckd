@@ -26,7 +26,12 @@ export default {
 <style>
 #loginComponent {
   margin-top: 8em;
-  margin-bottom: -3em;
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .loginInput {
@@ -67,7 +72,6 @@ export default {
 }
 
 #letMeInBtn {
-  position: absolute;
   width: 311px;
   height: 62px;
   background: #ffffff;
@@ -77,5 +81,6 @@ export default {
   font-weight: bolder;
   font-size: 20px;
   margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 </style>

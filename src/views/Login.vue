@@ -24,8 +24,6 @@ export default {
 
 <style>
 #loginSection {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +31,9 @@ export default {
 }
 
 #logoDiv {
-  height: 20%;
+  height: 60%;
+  width: 100%;
+  margin-top: 5em;
   display: flex;
   flex-direction: column;
   justify-content: center;

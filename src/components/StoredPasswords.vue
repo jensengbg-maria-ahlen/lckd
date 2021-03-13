@@ -3,17 +3,33 @@
     <div>
       <div class="allPasswordLabel">STORED PASSWORDS</div>
       <div class="allThePasswords">
-        <div>
-          <h3></h3>
-          <img src="@/assets/eye-outline.png" alt="eye show" />
+        <div class="display on">
+          <div class="www on">
+            <h3>dhskhsakjsd</h3>
+          </div>
+          <div class="showHide on">
+            <img src="@/assets/eye-outline.png" alt="eye show" class="eye" />
+          </div>
+        </div>
+        <div class="display off">
+          <div class="www off">
+            <h3>fdfjlskdjfdlskj</h3>
+          </div>
+          <div class="showHide off">
+            <img src="@/assets/eye-off-outline.png" alt="eye off" class="eye" />
+          </div>
         </div>
       </div>
     </div>
-
     <div>
       <div class="plainSight">PLAIN SIGHT</div>
       <div id="shownPassword">
-        <h3></h3>
+        <div id="passShow">
+          <h3 class="password">dfgfdgfgfdg</h3>
+        </div>
+        <div class="copyPass">
+          <img src="@/assets/copy.png" alt="copy" class="copy" />
+        </div>
       </div>
     </div>
     <button id="addNewBtn" @click="goTo('/new_pwd')">NEW LCKD</button>
@@ -35,9 +51,10 @@ export default {
 #storedPasswords {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 80vh;
+  width: 100%;
 }
 
 .allPasswordLabel {
@@ -62,6 +79,67 @@ export default {
   border: 1px solid #ffbd21;
   box-sizing: border-box;
   border-radius: 0px 8px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.display {
+  margin: 0.5em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 295px;
+  height: 58.81px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.display.on {
+  border: 1px solid #ffffff;
+}
+
+.display.off {
+  border: 1px solid #ffbd21;
+}
+
+.eye {
+  width: 40px;
+  height: 40px;
+}
+
+.www {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.www.on {
+  color: #ffffff;
+}
+
+.www.off {
+  color: #ffbd21;
+}
+
+.showHide {
+  width: 59.76px;
+  height: 58.81px;
+  box-sizing: border-box;
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showHide.on {
+  border-left: 1px solid #ffffff;
+}
+
+.showHide.off {
+  border-left: 1px solid #ffbd21;
 }
 
 .plainSight {
@@ -87,6 +165,42 @@ export default {
   border: 1px solid #ffffff;
   box-sizing: border-box;
   border-radius: 0px 4px 4px 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#passShow {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#passShow h3 {
+  font-family: PT Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+}
+
+.copyPass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 58.81px;
+}
+
+.copy {
+  width: 30px;
+  height: 30px;
 }
 
 #addNewBtn {
