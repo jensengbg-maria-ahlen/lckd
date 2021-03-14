@@ -31,7 +31,7 @@ export default {
 }
 
 #logoDiv {
-  height: 60%;
+  height: 100%;
   width: 100%;
   margin-top: 5em;
   display: flex;

@@ -16,7 +16,7 @@ body {
   background: #15085F;
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'Open Sans', sans-serif;
   display: flex;
   flex-direction: column;

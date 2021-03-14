@@ -27,6 +27,31 @@ export default {
   flex-direction: column;
 }
 
+.nav {
+  width: 100%;
+  display: flex;
+  margin: 1.5em;
+  flex-direction: row;
+}
+
+.smallLogo {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+}
+
+.navName {
+  margin-top: 0;
+  margin-left: 2em;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+}
+
 .newCredentialsH2 {
   font-style: normal;
   font-weight: bold;

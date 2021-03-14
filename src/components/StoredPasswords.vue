@@ -53,8 +53,8 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 80vh;
   width: 100%;
+  height: 78%;
 }
 
 .allPasswordLabel {

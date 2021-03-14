@@ -26,7 +26,7 @@ export default {
 <style>
 #loginComponent {
   margin-top: 8em;
-  height: 40%;
+  height: 60%;
   width: 100%;
   display: flex;
   flex-direction: column;

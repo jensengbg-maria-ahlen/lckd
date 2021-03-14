@@ -31,10 +31,11 @@ export default new Vuex.Store({
 
         if(h[0] === suffix.toUpperCase()) {
           msg = `The password has been used ${h[1]} times. Don't use!`
+          console.log(msg)
           break
         }
       }
-      return msg
+      console.log(msg)
     },
   },
 
@@ -48,7 +49,7 @@ export default new Vuex.Store({
         uppercase: true,
         strict: true
       })
-      
+
       return password
     }
   }
