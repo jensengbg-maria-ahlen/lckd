@@ -11,8 +11,8 @@
       </div>
       <div>
         <label for="">SECURE PASSWORD</label>
-        <h4></h4>
-        <img src="@/assets/redo.png" alt="redo" />
+        <h4>{{password}}</h4>
+        <img src="@/assets/redo.png" alt="redo" @click="generatePassword()"/>
       </div>
     </div>
     <button id="addPwdBtn" @click="goTo('/all_pwd')">NEW LCKD</button>
@@ -22,10 +22,18 @@
 <script>
 export default {
   name: "CreatePassword",
+  data: () => ({
+    password: ""
+  }),
   methods: {
     goTo(route) {
       this.$router.push(route);
     },
+    generatePassword() {
+      let newPassword = this.$store.getters['generatePassword']
+      this.password = newPassword
+      this.$store.dispatch('checkPassword', this.password)
+    }
   },
 };
 </script>
