@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "uuid": "l55fdGN58V",
+      "username": "mariaahlen",
+      "password": "$2b$10$6tWalZgnvM2MzthDylJ5r.pd5cjmant0dSckIjUE88UgE6A4WzE1y",
+      "userkey": "U2FsdGVkX1/fJjTZg7M+muczbFZemhniBh8LnM7YJBE="
+    },
+    {
+      "uuid": "pOFblUMgXy",
+      "username": "danielahlen",
+      "password": "$2b$10$g7VP8wXKXi.QOvDdHtZdIOj2n5ca6nqp0CbHoJhJiCzZe6RcOaQNK",
+      "userkey": "U2FsdGVkX1/6hlRS+StPWN8y6GoDMVREknx4AycB4cI="
+    }
+  ],
+  "lcked": []
+}

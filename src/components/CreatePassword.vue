@@ -32,7 +32,7 @@
         <h6 class="checkPwnd">pwnd</h6>
       </div>
     </div>
-    <button id="addPwdBtn" @click="goTo('/all_pwd')">NEW LCKD</button>
+    <button id="addPwdBtn" @click="goTo('/all_pwd')">CREATE LCKD</button>
   </section>
 </template>
 
@@ -47,10 +47,14 @@ export default {
       this.$router.push(route);
     },
     generatePassword() {
-      let newPassword = this.$store.getters["generatePassword"];
+      let newPassword = this.$store.getters.generatePassword;
       this.password = newPassword;
-      this.$store.dispatch("checkPassword", this.password);
+      this.checkPass(this.password)
     },
+    checkPass(password) {
+      let check = this.$store.dispatch("checkPassword", password);
+      console.log('check: ', check)
+    }
   },
 };
 </script>
@@ -125,6 +129,16 @@ input {
   box-sizing: border-box;
   border-radius: 0px 4px 4px 4px;
   background: #15085f;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffbd21;
 }
 
 .passwordDiv {

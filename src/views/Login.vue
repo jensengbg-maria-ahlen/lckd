@@ -19,6 +19,9 @@ export default {
   components: {
     LoginComponent,
   },
+  methods: {
+    
+  }
 };
 </script>
 

@@ -19,6 +19,12 @@ export default {
     goTo(route) {
       this.$router.push(route);
     },
+    login() {
+      let cred = {
+        username: String, 
+        password: String
+      }
+    }
   },
 };
 </script>
