@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { db } = require('./db');
 const bcrypt = require('bcrypt');
 const CryptoJS = require('crypto-js');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const router = new Router();
 
 router.post('/', async (req, res) => {
@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
     let userExist = db.get('users').find({ username: req.body.username }).value();
 
     if (userExist) {
-        const validPass = await bcrypt.compare(req.body.password, userExist.password)
+        const validPass = await bcrypt.compare(req.body.password, userExist.password);
 
         if (validPass) {
             const bytes = CryptoJS.AES.decrypt(userExist.userkey, process.env.SECRET);

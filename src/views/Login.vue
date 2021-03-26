@@ -7,6 +7,7 @@
         KEEPING YOUR <br />
         PASSWORDS SAFE
       </h3>
+      <CookieComponent />
     </div>
     <LoginComponent />
   </section>
@@ -14,10 +15,12 @@
 
 <script>
 import LoginComponent from "./../components/LoginComponent";
+import CookieComponent from './../components/CookieComponent'
 export default {
   name: "Login",
   components: {
     LoginComponent,
+    CookieComponent
   },
   methods: {
     

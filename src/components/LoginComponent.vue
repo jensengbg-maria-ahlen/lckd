@@ -24,6 +24,8 @@ export default {
         username: String, 
         password: String
       }
+
+      console.log(cred)
     }
   },
 };

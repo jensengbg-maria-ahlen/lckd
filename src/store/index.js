@@ -9,9 +9,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     password: '',
+    show: {
+      showCookie: true,
+    }
   },
 
   mutations: {
+    hideCookie(state) {
+      state.show.showCookie = !state.show.showCookie
+    }
   },
 
   actions: {

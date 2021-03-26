@@ -31,14 +31,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-
-
-/*
-            lcked: [
-                {
-                    title: String,
-                    username: String,
-                    password: String
-                }
-            ]
-*/
