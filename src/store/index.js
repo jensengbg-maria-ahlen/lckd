@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import sha1 from 'js-sha1'
-import ax from 'axios'
+import axios from 'axios'
 import generatePass from 'generate-password'
 import router from './../router'
 import CryptoJS from 'crypto-js'
 
 Vue.use(Vuex)
-const API = 'http://localhost:3000'
+const API = 'http://localhost:8000'
 
 export default new Vuex.Store({
   state: {
@@ -80,7 +80,7 @@ export default new Vuex.Store({
       let prefix = hash.substr(0, 5)
       let suffix = hash.substr(5, hash.length)
 
-      let resp = await ax(`${API_URL}/${prefix}`)
+      let resp = await axios.get(`${API_URL}/${prefix}`)
       let hashes = resp.data.split('\r\n')
 
       let msg = 'This password is good to use'
