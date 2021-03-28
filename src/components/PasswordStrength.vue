@@ -1,4 +1,3 @@
-  
 <template>
   <section id="strength">
       <p :class="{valid : validator.length}">#</p>

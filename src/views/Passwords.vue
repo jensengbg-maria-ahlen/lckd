@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import Top from '@/components/Top';
-import Password from '@/components/Password';
+import Top from './../components/Top';
+import Password from './../components/Password';
 export default {
   name: 'Passwords',
   data(){
