@@ -1,74 +1,66 @@
 <template>
-  <section id="loginSection">
-    <div id="logoDiv">
-      <img src="@/assets/logo.png" alt="logo" class="bigLogo" />
-      <h1 class="headerText">LCKD</h1>
-      <h3 class="headerText2">
-        KEEPING YOUR <br />
-        PASSWORDS SAFE
-      </h3>
-      <CookieComponent />
-    </div>
-    <LoginComponent />
-  </section>
+  <main id="login">
+      <img src="@/assets/logo.svg" alt="LCKD logo">
+      <h1>LCKD</h1>
+      <h2>Keeping your passwords safe</h2>
+      <section>
+          <label for="username">Username</label>
+          <input type="text" name="username" v-model="username">
+          <label for="password">Password</label>
+          <input type="password" name="password" v-model="password">
+          <a href="#" class="btn" @click.prevent="login">Let me in</a>
+      </section>
+  </main>
 </template>
 
 <script>
-import LoginComponent from "./../components/LoginComponent";
-import CookieComponent from './../components/CookieComponent'
 export default {
-  name: "Login",
-  components: {
-    LoginComponent,
-    CookieComponent
-  },
-  methods: {
-    
-  }
-};
+    name: 'Login',
+    data(){
+        return {
+            username: '',
+            password: ''
+        }
+    },
+    methods: {
+        login(){
+            this.$store.dispatch('login', { username: this.username, password: this.password })
+        }
+    }
+}
 </script>
 
-<style>
-#loginSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#logoDiv {
-  height: 100%;
-  width: 100%;
-  margin-top: 5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.bigLogo {
-  width: 76px;
-  height: 76px;
-}
-
-.headerText {
-  margin: 0.3em;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 44px;
-  color: #ffffff;
-  letter-spacing: 0.15em;
-  text-align: center;
-}
-
-.headerText2 {
-  margin: 0;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 150%;
-  letter-spacing: 0.15em;
-  text-align: center;
-  color: #ffbd21;
+<style lang="scss">
+@import './../scss/variables';
+#login {
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > img {
+        margin-top: auto;
+    }
+    h1 {
+        font-size: 3rem;
+        color: white;
+        margin: .5rem 0;
+    }
+    h2 {
+        margin: 0;
+        color: $yellow;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        max-width: 16rem;
+        text-align: center;
+    }
+    section {
+        width: 100%;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 </style>

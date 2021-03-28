@@ -3,24 +3,77 @@ import Vuex from 'vuex'
 import sha1 from 'js-sha1'
 import ax from 'axios'
 import generatePass from 'generate-password'
+import router from './../router'
+import CryptoJS from 'crypto-js'
 
 Vue.use(Vuex)
+const API = 'http://localhost:3000'
 
 export default new Vuex.Store({
   state: {
-    password: '',
-    show: {
-      showCookie: true,
-    }
+    plainView: Object,
+    passwords: []
   },
 
   mutations: {
     hideCookie(state) {
       state.show.showCookie = !state.show.showCookie
+    },
+    setTokenAndKey(state, tokenAndKey){
+      state.token = tokenAndKey.token;
+      state.userkey = tokenAndKey.userkey;
+    },
+    setLckd(state, passwords){
+      state.passwords = passwords;
+    },
+    setPlainView(state, plainView){
+      state.plainView = plainView;
     }
   },
 
   actions: {
+    async login(ctx, cred) {
+      let resp = await axios.post(`${API}/auth/login`, {
+        username: cred.username,
+        password: cred.password
+      });
+
+      sessionStorage.setItem('lckdToken', resp.data.token);
+      sessionStorage.setItem('lckdUserkey', resp.data.userkey);
+      router.push('/passwords')
+    },
+    
+    async getLckd({ commit }){
+      let resp = await axios.get(`${API}/lckd`, {
+        headers: {
+          'authorization': `Bearer ${sessionStorage.getItem('lckdToken')}`
+        }
+      });
+      commit('setLckd', resp.data)
+    },
+
+    async viewPassword({ commit }, lckd){
+      const password = CryptoJS.AES.decrypt(lckd.password, sessionStorage.getItem('lckdUserkey')).toString(CryptoJS.enc.Utf8)
+      commit('setPlainView', {
+        id: lckd.id,
+        domain: lckd.domain,
+        username: lckd.username,
+        password: password
+      });
+    },
+
+    async newLckd(ctx, newLckd){
+      let resp = await axios.post(`${API}/lckd`, newLckd, {
+        headers: {
+          'authorization': `Bearer ${sessionStorage.getItem('lckdToken')}`
+        }
+      });
+
+      console.log(resp) 
+      ctx.dispatch('getLckd')
+      router.push('/passwords')
+    },
+
     async checkPassword(password) {
       const API_URL = 'https://api.pwnedpasswords.com/range';
       let hash = sha1(password)
@@ -57,7 +110,7 @@ export default new Vuex.Store({
         strict: true
       })
 
-      return newPassword      
+      return newPassword
     },
   }
 })

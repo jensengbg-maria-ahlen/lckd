@@ -3,6 +3,7 @@ const { db } = require('./db');
 const CryptoJS = require('crypto-js');
 const jwt = require('jsonwebtoken');
 const shortid = require('shortid');
+
 const router = new Router();
 
 router.post('/', async (req, res) => {
@@ -12,7 +13,7 @@ router.post('/', async (req, res) => {
         const verified_user = jwt.verify(token, process.env.JWT_KEY);
         let user = db.get('users').find({ uuid: verified_user.uuid }).value();
 
-        let DECRYPTED_USER_KEY = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET).toString();
+        let DECRYPTED_USER_KEY = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET).toString(CryptoJS.enc.Utf8);
 
         const lckd = {
             id: shortid.generate(),

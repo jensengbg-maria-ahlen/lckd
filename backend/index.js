@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const auth = require('./routes/auth');
 const users = require('./routes/users');
@@ -8,6 +9,7 @@ const lckd = require('./routes/lckd');
 
 const app = express();
 
+app.use(cors());
 app.use(helmet());
 app.use(express.json());
 

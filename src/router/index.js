@@ -10,14 +10,14 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
-    path: '/all_pwd',
+    path: '/passwords',
     name: 'Passwords',
-    component: () => import('../views/AllPasswords.vue')
+    component: () => import('../views/Passwords.vue')
   },
   {
-    path: '/new_pwd',
-    name: 'NewPassword',
-    component: () => import('../views/NewPassword.vue')
+    path: '/new',
+    name: 'NewLCKD',
+    component: () => import('../views/NewLCKD.vue')
   }
 ]
 

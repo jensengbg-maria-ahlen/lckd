@@ -15,7 +15,7 @@
 export default {
   name: "CookieComponent",
   data: () => ({
-      display: true
+      display: false
   }),
   methods: {
       accept() {
